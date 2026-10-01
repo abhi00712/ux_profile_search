@@ -133,7 +133,7 @@ within the same sentence, else the first one found.
 | Signal | Max | Rule |
 |---|---|---|
 | Title fit | 35 | Seniority word (`senior`, `sr`, `lead`, `staff`, `principal`) + role keyword → 35; role keyword only → 22 |
-| Experience fit | 25 | min in 3–8 → 25; min = 9 → 15; min ≥ 10 → 8 and tag **May be very senior**; unknown → 15 |
+| Experience fit | 25 | min ≤ 8 → 25; min = 9 → 15; min ≥ 10 → 8 and tag **May be very senior**; unknown → 15 |
 | Industry boost | 25 | Gaming match → 25 (**Gaming**); consumer app / quick commerce / e-commerce match → 20 (**Consumer app** / **Quick commerce**); none → 0. Take the highest; show all matching tags |
 | Freshness | 15 | Posted today 15, 1 day 12, 2 days 9, 3 days 6, then −1/day to 0 |
 
@@ -142,8 +142,9 @@ keywords.
 
 - Gaming companies (starter list): PlaySimple, BeBetta, Dream11, MPL, Games24x7,
   WinZO, Zynga, Moonfrog, Octro, Nazara, Gameberry, SuperGaming, Junglee Games,
-  Kwalee, Rooter. Keywords: `game`, `gaming`, `mobile games`, `casual games`,
-  `fantasy sports`, `prediction`.
+  Kwalee, Rooter. Keywords: `gaming`, `games`, `game studio`, `game design`,
+  `mobile game`, `casual game`, `fantasy sports`, `real-money gaming` (bare `game` and
+  `prediction` are avoided because they match phrases like "game-changer").
 - Quick commerce / e-commerce: Zepto, Swiggy, Blinkit, Zomato, Flipkart, BigBasket,
   Meesho, Myntra, Nykaa, Dunzo. Keywords: `quick commerce`, `q-commerce`, `e-commerce`.
 - Consumer app keywords: `b2c`, `consumer app`, `consumer-facing`, `consumer product`.
