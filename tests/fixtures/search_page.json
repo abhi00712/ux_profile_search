@@ -1,0 +1,114 @@
+{
+  "status": "OK",
+  "request_id": "fixture-1",
+  "parameters": {"query": "Senior UX Designer in Bengaluru", "page": 1, "num_pages": 1, "country": "in", "date_posted": "3days"},
+  "data": [
+    {
+      "job_id": "a1",
+      "job_title": "Senior UX Designer",
+      "employer_name": "PlaySimple Games",
+      "employer_logo": "https://example.com/playsimple.png",
+      "employer_website": "https://www.playsimple.in",
+      "job_publisher": "LinkedIn",
+      "job_employment_type": "Full-time",
+      "job_apply_link": "https://www.linkedin.com/jobs/view/a1",
+      "apply_options": [
+        {"publisher": "LinkedIn", "apply_link": "https://www.linkedin.com/jobs/view/a1", "is_direct": false},
+        {"publisher": "PlaySimple Careers", "apply_link": "https://careers.playsimple.in/a1", "is_direct": true}
+      ],
+      "job_description": "PlaySimple is a mobile games studio behind casual word games. You will own UX for live games. Requirements: 4-8 years of UX design experience, strong Figma skills.",
+      "job_city": "Bengaluru",
+      "job_state": "Karnataka",
+      "job_country": "IN",
+      "job_location": "Bengaluru, Karnataka",
+      "job_posted_at_timestamp": 1790899200,
+      "job_min_salary": null,
+      "job_max_salary": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": ["4-8 years of UX design experience", "Portfolio of shipped mobile games"],
+        "Responsibilities": ["Own end-to-end UX for live games"]
+      },
+      "job_required_experience": {"required_experience_in_months": null}
+    },
+    {
+      "job_id": "a2",
+      "job_title": "Senior UX Designer",
+      "employer_name": "PlaySimple Games",
+      "employer_logo": null,
+      "employer_website": null,
+      "job_publisher": "Naukri",
+      "job_employment_type": "Full-time",
+      "job_apply_link": "https://www.naukri.com/job/a2",
+      "apply_options": [],
+      "job_description": "Senior UX Designer for mobile games.",
+      "job_city": "Bengaluru",
+      "job_location": "Bengaluru, Karnataka",
+      "job_posted_at_timestamp": 1790812800,
+      "job_highlights": {},
+      "job_required_experience": {}
+    },
+    {
+      "job_id": "b1",
+      "job_title": "Interior Designer",
+      "employer_name": "Livspace",
+      "job_publisher": "Indeed",
+      "job_apply_link": "https://in.indeed.com/b1",
+      "job_description": "Design beautiful homes. 3+ years of interior design experience.",
+      "job_city": "Bengaluru",
+      "job_location": "Bengaluru, Karnataka",
+      "job_posted_at_timestamp": 1790899200
+    },
+    {
+      "job_id": "c1",
+      "job_title": "Product Design Intern",
+      "employer_name": "Zepto",
+      "job_publisher": "LinkedIn",
+      "job_apply_link": "https://www.linkedin.com/jobs/view/c1",
+      "job_description": "Six-month internship in our quick commerce design team.",
+      "job_city": "Bengaluru",
+      "job_location": "Bengaluru, Karnataka",
+      "job_posted_at_timestamp": 1790899200
+    },
+    {
+      "job_id": "d1",
+      "job_title": "Senior Product Designer",
+      "employer_name": "Acme Fintech",
+      "job_publisher": "Glassdoor",
+      "job_apply_link": "https://www.glassdoor.co.in/d1",
+      "job_description": "5+ years of product design experience.",
+      "job_city": "Pune",
+      "job_location": "Pune, Maharashtra",
+      "job_posted_at_timestamp": 1790899200
+    },
+    {
+      "job_id": "e1",
+      "job_title": "Lead Product Designer",
+      "employer_name": "Zepto",
+      "employer_logo": "https://example.com/zepto.png",
+      "job_publisher": "Zepto Careers",
+      "job_employment_type": "Full-time",
+      "job_apply_link": "https://careers.zepto.com/e1",
+      "job_description": "Lead design for our quick commerce consumer app used by millions.",
+      "job_city": "Bengaluru",
+      "job_location": "Bengaluru, Karnataka",
+      "job_posted_at_timestamp": 1790726400,
+      "job_min_salary": 3000000,
+      "job_max_salary": 4500000,
+      "job_salary_period": "YEAR",
+      "job_highlights": {"Qualifications": ["Experience leading design teams"]},
+      "job_required_experience": {"required_experience_in_months": 72}
+    },
+    {
+      "job_id": "f1",
+      "job_title": "Product Designer",
+      "employer_name": "Acme Health",
+      "job_publisher": "Indeed",
+      "job_apply_link": "https://in.indeed.com/f1",
+      "job_description": "B2C consumer app. 0-2 years of product design experience.",
+      "job_city": null,
+      "job_location": "Bangalore, Karnataka",
+      "job_posted_at_timestamp": 1790899200
+    }
+  ]
+}
