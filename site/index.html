@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Senior UX / Product Designer jobs</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #fff; --text: #1d2330; --muted: #667085; --line: #e4e7ec;
+    --accent: #4f46e5; --accent-soft: #eef2ff; --good: #067647; --good-soft: #ecfdf3;
+    --warn: #b54708; --warn-soft: #fffaeb; --bad: #b42318; --bad-soft: #fef3f2;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+  main { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  .banner { margin: 16px 0 0; padding: 10px 14px; border-radius: 8px; font-size: 14px; }
+  .banner.bad { background: var(--bad-soft); color: var(--bad); }
+  .banner.warn { background: var(--warn-soft); color: var(--warn); }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 20px 0 16px; position: sticky; top: 0; background: var(--bg); padding: 8px 0; z-index: 1; }
+  input[type=search] { flex: 1 1 240px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font: inherit; }
+  button { font: inherit; cursor: pointer; }
+  .chip { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 5px 12px; font-size: 13px; }
+  .chip[aria-pressed=true] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  select { padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; font: inherit; background: var(--card); }
+  .toggle { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+  .count { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+  .card.applied { opacity: .6; }
+  .card.dismissed { opacity: .45; }
+  .head { display: flex; gap: 12px; align-items: flex-start; }
+  .logo { width: 44px; height: 44px; border-radius: 8px; object-fit: contain; border: 1px solid var(--line); background: #fff; flex: none; }
+  .logo.placeholder { display: grid; place-items: center; font-weight: 600; color: var(--muted); }
+  .title { font-size: 17px; font-weight: 600; margin: 0; }
+  .company { color: var(--muted); }
+  .score { margin-left: auto; text-align: center; flex: none; }
+  .score b { display: block; font-size: 20px; color: var(--accent); line-height: 1.1; }
+  .score span { font-size: 11px; color: var(--muted); }
+  .facts { display: flex; flex-wrap: wrap; gap: 4px 14px; color: var(--muted); font-size: 13px; margin: 10px 0 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+  .tag { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  .tag.new { background: var(--good-soft); color: var(--good); }
+  .tag.senior { background: var(--warn-soft); color: var(--warn); }
+  .lists { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 4px 20px; margin-top: 10px; font-size: 14px; }
+  .lists h3 { font-size: 13px; margin: 6px 0 2px; color: var(--muted); font-weight: 600; }
+  .lists ul { margin: 0; padding-left: 18px; }
+  details { margin-top: 10px; font-size: 14px; }
+  summary { cursor: pointer; color: var(--accent); }
+  .description { white-space: pre-wrap; margin-top: 8px; color: #344054; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; align-items: center; }
+  .apply { text-decoration: none; background: var(--accent); color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 13px; }
+  .apply.secondary { background: var(--accent-soft); color: var(--accent); }
+  .mark { margin-left: auto; display: flex; gap: 6px; }
+  .mark button { border: 1px solid var(--line); background: var(--card); border-radius: 8px; padding: 5px 10px; font-size: 13px; }
+  .mark button[aria-pressed=true] { background: var(--text); color: #fff; border-color: var(--text); }
+  .empty { text-align: center; color: var(--muted); padding: 48px 0; }
+  @media (max-width: 560px) { .mark { margin-left: 0; width: 100%; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="heading">Senior UX / Product Designer jobs</h1>
+    <div class="meta" id="meta">Loading…</div>
+    <div id="banners"></div>
+  </header>
+
+  <div class="controls">
+    <input type="search" id="search" placeholder="Search company, title or skill">
+    <div id="chips" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+    <select id="sort" aria-label="Sort">
+      <option value="score">Best match</option>
+      <option value="newest">Newest</option>
+    </select>
+    <label class="toggle"><input type="checkbox" id="showHidden"> Show hidden</label>
+  </div>
+
+  <div class="count" id="count"></div>
+  <div id="list"></div>
+</main>
+
+<script>
+const TAG_FILTERS = ["Gaming", "Quick commerce", "Consumer app", "New today"];
+const MARKS_KEY = "jobDashboard.marks.v1";
+
+const state = {
+  jobs: [],
+  status: null,
+  query: "",
+  tags: new Set(),
+  sort: "score",
+  showHidden: false,
+  marks: loadMarks(),
+};
+
+function loadMarks() {
+  try { return JSON.parse(localStorage.getItem(MARKS_KEY)) || {}; } catch { return {}; }
+}
+
+function saveMarks() {
+  localStorage.setItem(MARKS_KEY, JSON.stringify(state.marks));
+}
+
+function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(attrs)) {
+    if (value === undefined || value === null || value === false) continue;
+    if (key === "class") node.className = value;
+    else if (key.startsWith("on")) node.addEventListener(key.slice(2), value);
+    else node.setAttribute(key, value);
+  }
+  for (const child of children.flat()) {
+    if (child === null || child === undefined || child === false) continue;
+    node.append(child instanceof Node ? child : document.createTextNode(String(child)));
+  }
+  return node;
+}
+
+function safeUrl(url) {
+  return typeof url === "string" && /^https?:\/\//i.test(url) ? url : null;
+}
+
+function postedAgo(ts) {
+  if (!ts) return null;
+  const days = Math.max(0, Math.floor((Date.now() / 1000 - ts) / 86400));
+  if (days === 0) return "Posted today";
+  return `Posted ${days} day${days === 1 ? "" : "s"} ago`;
+}
+
+function formatExperience(exp) {
+  if (!exp) return null;
+  const [low, high] = exp;
+  return high === null || high === undefined ? `${low}+ yrs exp` : `${low}–${high} yrs exp`;
+}
+
+function formatSalary(salary) {
+  if (!salary) return null;
+  const { min, max, period } = salary;
+  if ((period || "").toUpperCase() === "YEAR" && (min || max) >= 100000) {
+    const lpa = (v) => (v / 100000).toFixed(v % 100000 ? 1 : 0);
+    const range = min && max ? `${lpa(min)}–${lpa(max)}` : lpa(min || max);
+    return `₹${range} LPA`;
+  }
+  const fmt = (v) => Number(v).toLocaleString("en-IN");
+  const range = min && max ? `${fmt(min)}–${fmt(max)}` : fmt(min || max);
+  return period ? `₹${range} / ${period.toLowerCase()}` : `₹${range}`;
+}
+
+function formatRanAt(iso) {
+  if (!iso) return null;
+  const d = new Date(iso);
+  return isNaN(d) ? iso : d.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
+}
+
+function jobTags(job) {
+  return [...(job.tags || []), ...(job.new_today ? ["New today"] : [])];
+}
+
+function matchesQuery(job, query) {
+  if (!query) return true;
+  const haystack = [
+    job.title, job.company, job.description,
+    ...(job.highlights?.qualifications || []),
+    ...(job.highlights?.responsibilities || []),
+  ].join("\n").toLowerCase();
+  return query.toLowerCase().split(/\s+/).every((word) => haystack.includes(word));
+}
+
+function visibleJobs() {
+  const rank = (job) => ({ applied: 1, dismissed: 2 }[state.marks[job.id]] || 0);
+  return state.jobs
+    .filter((job) => state.showHidden || state.marks[job.id] !== "dismissed")
+    .filter((job) => matchesQuery(job, state.query))
+    .filter((job) => state.tags.size === 0 || jobTags(job).some((t) => state.tags.has(t)))
+    .sort((a, b) => {
+      if (rank(a) !== rank(b)) return rank(a) - rank(b);
+      if (state.sort === "newest") return (b.posted_at || 0) - (a.posted_at || 0);
+      return b.score - a.score || (b.posted_at || 0) - (a.posted_at || 0);
+    });
+}
+
+function setMark(job, mark) {
+  if (state.marks[job.id] === mark) delete state.marks[job.id];
+  else state.marks[job.id] = mark;
+  saveMarks();
+  render();
+}
+
+function renderCard(job) {
+  const mark = state.marks[job.id];
+  const logoUrl = safeUrl(job.logo);
+  const initial = (job.company || "?").trim().charAt(0).toUpperCase();
+  const logo = logoUrl
+    ? el("img", { class: "logo", src: logoUrl, alt: "", loading: "lazy",
+        onerror: (e) => e.target.replaceWith(el("div", { class: "logo placeholder" }, initial)) })
+    : el("div", { class: "logo placeholder" }, initial);
+
+  const facts = [
+    job.city, postedAgo(job.posted_at), job.employment_type,
+    formatExperience(job.experience), formatSalary(job.salary),
+    job.apply_links?.length ? `via ${[...new Set(job.apply_links.map((l) => l.publisher).filter(Boolean))].join(", ")}` : null,
+  ].filter(Boolean);
+
+  const tags = jobTags(job).map((t) =>
+    el("span", { class: `tag${t === "New today" ? " new" : ""}${t === "May be very senior" ? " senior" : ""}` }, t));
+
+  const list = (label, items) => items?.length
+    ? el("div", {}, el("h3", {}, label), el("ul", {}, items.slice(0, 5).map((i) => el("li", {}, i))))
+    : null;
+  const lists = [
+    list("Qualifications", job.highlights?.qualifications),
+    list("Responsibilities", job.highlights?.responsibilities),
+  ].filter(Boolean);
+
+  const links = (job.apply_links || [])
+    .map((l, i) => ({ ...l, url: safeUrl(l.url), primary: i === 0 }))
+    .filter((l) => l.url)
+    .map((l) => el("a", { class: `apply${l.primary ? "" : " secondary"}`, href: l.url, target: "_blank", rel: "noopener noreferrer" },
+      `Apply${l.publisher ? ` on ${l.publisher}` : ""}`));
+
+  return el("article", { class: `card${mark ? ` ${mark}` : ""}` },
+    el("div", { class: "head" },
+      logo,
+      el("div", {},
+        el("h2", { class: "title" }, job.title),
+        el("div", { class: "company" }, job.company)),
+      el("div", { class: "score", title: "Match score out of 100" }, el("b", {}, job.score), el("span", {}, "match"))),
+    el("div", { class: "facts" }, facts.map((f) => el("span", {}, f))),
+    tags.length ? el("div", { class: "tags" }, tags) : null,
+    lists.length ? el("div", { class: "lists" }, lists) : null,
+    job.description ? el("details", {}, el("summary", {}, "Show full description"),
+      el("div", { class: "description" }, job.description)) : null,
+    el("div", { class: "actions" },
+      links,
+      el("div", { class: "mark" },
+        el("button", { "aria-pressed": String(mark === "applied"), onclick: () => setMark(job, "applied") }, "Applied"),
+        el("button", { "aria-pressed": String(mark === "dismissed"), onclick: () => setMark(job, "dismissed") }, "Not interested"))));
+}
+
+function renderHeader() {
+  const s = state.status || {};
+  document.getElementById("heading").textContent =
+    `Senior UX / Product Designer jobs · ${s.location || "Bengaluru"}`;
+  const newToday = state.jobs.filter((j) => j.new_today).length;
+  const parts = [
+    s.ran_at ? `Refreshed ${formatRanAt(s.ran_at)}` : "Not refreshed yet",
+    `${state.jobs.length} jobs`,
+    `${newToday} new today`,
+    s.credits_left !== null && s.credits_left !== undefined ? `${s.credits_left} API credits left this month` : null,
+  ].filter(Boolean);
+  document.getElementById("meta").textContent = parts.join(" · ");
+
+  const banners = document.getElementById("banners");
+  banners.replaceChildren();
+  if (s.ok === false) {
+    const when = s.ran_at ? new Date(s.ran_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : "the last run";
+    banners.append(el("div", { class: "banner bad" },
+      `Last refresh failed on ${when}: ${s.error || "unknown error"}. Showing the most recent jobs available.`));
+  }
+  if (s.warning) banners.append(el("div", { class: "banner warn" }, s.warning));
+}
+
+function renderChips() {
+  const chips = document.getElementById("chips");
+  chips.replaceChildren(...TAG_FILTERS.map((tag) =>
+    el("button", { class: "chip", "aria-pressed": String(state.tags.has(tag)),
+      onclick: () => { state.tags.has(tag) ? state.tags.delete(tag) : state.tags.add(tag); render(); } }, tag)));
+}
+
+function render() {
+  renderHeader();
+  renderChips();
+  const jobs = visibleJobs();
+  const hidden = state.jobs.filter((j) => state.marks[j.id] === "dismissed").length;
+  document.getElementById("count").textContent =
+    `Showing ${jobs.length} of ${state.jobs.length}${hidden && !state.showHidden ? ` (${hidden} hidden)` : ""}`;
+  const list = document.getElementById("list");
+  if (jobs.length) {
+    list.replaceChildren(...jobs.map(renderCard));
+  } else {
+    list.replaceChildren(el("div", { class: "empty" },
+      state.jobs.length ? "No jobs match these filters." : "No jobs yet. They will appear after the first daily refresh."));
+  }
+}
+
+async function loadJson(path) {
+  try {
+    const response = await fetch(path, { cache: "no-store" });
+    return response.ok ? await response.json() : null;
+  } catch {
+    return null;
+  }
+}
+
+document.getElementById("search").addEventListener("input", (e) => { state.query = e.target.value.trim(); render(); });
+document.getElementById("sort").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+document.getElementById("showHidden").addEventListener("change", (e) => { state.showHidden = e.target.checked; render(); });
+
+Promise.all([loadJson("data/jobs.json"), loadJson("data/status.json")]).then(([jobs, status]) => {
+  state.jobs = jobs?.jobs || [];
+  state.status = status;
+  render();
+});
+</script>
+</body>
+</html>
