@@ -1,0 +1,90 @@
+# What to search for and how to rank it. Edit freely; no code changes needed.
+
+location:
+  label: Bengaluru
+  country: in
+  city_keywords: [bengaluru, bangalore]
+
+# Each returned page (up to 10 jobs) costs 1 JSearch credit. Free plan: 200/month.
+searches:
+  - query: Senior UX Designer in Bengaluru
+    max_pages: 3
+  - query: Senior Product Designer in Bengaluru
+    max_pages: 2
+
+date_posted: 3days
+quota_guard: 10
+expire_days: 14
+
+title:
+  role_keywords:
+    - ux
+    - ui/ux
+    - user experience
+    - product designer
+    - product design
+    - interaction designer
+    - experience designer
+  seniority_keywords: [senior, sr, lead, staff, principal]
+  exclude_keywords:
+    - graphic
+    - interior
+    - fashion
+    - textile
+    - jewellery
+    - jewelry
+    - cad
+    - mechanical
+    - instructional
+  junior_keywords: [intern, internship, trainee, junior, jr, associate, fresher]
+
+experience:
+  min_upper_bound: 3
+
+industries:
+  - tag: Gaming
+    points: 25
+    companies:
+      - playsimple
+      - bebetta
+      - dream11
+      - mpl
+      - mobile premier league
+      - games24x7
+      - winzo
+      - zynga
+      - moonfrog
+      - octro
+      - nazara
+      - gameberry
+      - supergaming
+      - junglee games
+      - kwalee
+      - rooter
+    keywords:
+      - gaming
+      - games
+      - game studio
+      - game design
+      - mobile game
+      - casual game
+      - fantasy sports
+      - real-money gaming
+  - tag: Quick commerce
+    points: 20
+    companies:
+      - zepto
+      - swiggy
+      - blinkit
+      - zomato
+      - flipkart
+      - bigbasket
+      - meesho
+      - myntra
+      - nykaa
+      - dunzo
+    keywords: [quick commerce, q-commerce, e-commerce, ecommerce]
+  - tag: Consumer app
+    points: 20
+    companies: []
+    keywords: [b2c, consumer app, consumer-facing, consumer product]
