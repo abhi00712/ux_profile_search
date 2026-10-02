@@ -1,0 +1,9 @@
+{
+  "ok": false,
+  "ran_at": "2026-10-02T12:41+05:30",
+  "error": "RAPIDAPI_KEY secret is not set",
+  "warning": null,
+  "credits_left": null,
+  "location": "Bengaluru",
+  "counts": null
+}
