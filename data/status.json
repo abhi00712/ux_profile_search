@@ -1,6 +1,6 @@
 {
   "ok": false,
-  "ran_at": "2026-11-24T16:46+05:30",
+  "ran_at": "2026-11-25T15:32+05:30",
   "error": "RAPIDAPI_KEY secret is not set",
   "warning": null,
   "credits_left": null,
